@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@custom-variant dark (&);
+@theme { --font-sans: 'Inter', system-ui, sans-serif; --color-cyan-brand:#2dd4bf; }
+@layer base { html{scroll-behavior:smooth} body{font-family:var(--font-sans)} }
+@keyframes fadein { from { opacity: 0; transform: translateX(16px) } to { opacity: 1; transform: none } }
+
+/* TV-style rolling refresh bar + subtle flicker over the hero */
+.tv-bar {
+  background: linear-gradient(to bottom, transparent, rgba(94, 234, 212, 0.14) 45%, rgba(190, 255, 245, 0.24) 50%, rgba(94, 234, 212, 0.14) 55%, transparent);
+  mix-blend-mode: screen;
+  animation: tv-roll 6s linear infinite;
+}
+.tv-flicker {
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.14) 2px 3px);
+  animation: tv-flicker 0.18s steps(2) infinite;
+}
+@keyframes tv-roll { from { transform: translateY(-120%) } to { transform: translateY(1000%) } }
+@keyframes tv-flicker { 0% { opacity: .8 } 50% { opacity: 1 } 100% { opacity: .9 } }
+@media (prefers-reduced-motion: reduce) { .tv-bar, .tv-flicker { animation: none } }

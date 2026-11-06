@@ -1,0 +1,10 @@
+{
+  "description": "An interactive portfolio showcases a creator’s work, skills, and experience, helping visitors explore projects and connect for opportunities.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
